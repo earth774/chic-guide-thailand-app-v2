@@ -1,22 +1,39 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'places/add',
+    loadChildren: () => import('./pages/place-save/place-save.module').then(m => m.PlaceSavePageModule)
+  },
+  {
+    path: 'places/:id/:slug/reviews',
+    loadChildren: () => import('./pages/review-list/review-list.module').then(m => m.ReviewListPageModule)
+  },
+  {
+    path: 'places/:id/reviews',
+    loadChildren: () => import('./pages/review-list/review-list.module').then(m => m.ReviewListPageModule)
+  },
+  {
+    path: 'places/:id',
+    loadChildren: () => import('./pages/place-detail/place-detail.module').then(m => m.PlaceDetailPageModule)
+  },
+  {
+    path: 'places/:id/:slug',
+    loadChildren: () => import('./pages/place-detail/place-detail.module').then(m => m.PlaceDetailPageModule)
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+      useHash: true 
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
