@@ -1,0 +1,7 @@
+{
+  "name": "chic-guide-th",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
