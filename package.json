@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --service-worker",
+    "build": "ng build --service-worker",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
