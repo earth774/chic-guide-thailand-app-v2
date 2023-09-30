@@ -53,6 +53,10 @@ export class User extends Parse.User {
     return User.logOut();
   }
 
+  deleteAccount(data: any = {}): Promise<{ sessionToken: string }> {
+    return Parse.Cloud.run('deleteAccount', data);
+  }
+
   recoverPassword(email: string) {
     return User.requestPasswordReset(email);
   }

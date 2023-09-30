@@ -7,7 +7,7 @@ import { ChangePasswordPage } from '../change-password/change-password';
 import { SignInPage } from '../sign-in/sign-in';
 import { SettingsPage } from '../settings/settings';
 import { AppConfigService } from 'src/app/services/app-config.service';
-import { IonContent } from '@ionic/angular';
+import { AlertController,IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +23,9 @@ export class ProfilePage extends BasePage implements OnInit {
   public isReviewsEnabled: boolean;
 
   constructor(injector: Injector,
-    private appConfigService: AppConfigService) {
+    private appConfigService: AppConfigService,
+    private userService: User,
+    private alertController: AlertController) {
     super(injector);
   }
 
@@ -130,6 +132,43 @@ export class ProfilePage extends BasePage implements OnInit {
 
   onLogout() {
     window.dispatchEvent(new CustomEvent("user:logout"));
+  }
+
+  async onAccountDelete() {
+
+    const alert = await this.alertController.create({
+      header: 'Are you sure you want to delete your account?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            // this.handlerMessage = 'Alert canceled';
+          },
+        },
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: async () => {
+            // this.handlerMessage = 'Alert confirmed';
+            let user = User.getCurrent();
+            let loginData = {
+              id: user.id
+            }
+            let data = await this.userService.deleteAccount(loginData)
+            if (data) {
+              this.onLogout()
+            }
+
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    // this.roleMessage = `Dismissed with role: ${role}`;
   }
 
 }

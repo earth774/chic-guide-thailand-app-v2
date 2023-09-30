@@ -73,6 +73,7 @@
   "LOGGED_IN_AS": "Logged in as {{ username }}",
   "LOGGED_OUT": "Logged Out",
   "LOGOUT": "Logout",
+  "ACCOUNT_DELETE": "Delete my account",
   "LOADING": "Loading. Please wait...",
   "OK": "Ok",
   "CANCEL": "Cancel",
