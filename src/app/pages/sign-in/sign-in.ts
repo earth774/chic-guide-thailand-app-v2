@@ -247,6 +247,9 @@ export class SignInPage extends BasePage {
       const { sessionToken } = await this.userService.loginInCloud({
         provider: 'google',
         authData,
+        extraData:{
+          email:res.email
+        }
       });
 
       const user = await this.userService.becomeWithSessionToken(sessionToken);
