@@ -27,7 +27,7 @@
     "@capacitor-community/apple-sign-in": "^5.0.0",
     "@capacitor-community/facebook-login": "^5.0.3",
     "@capacitor-community/native-audio": "^5.0.1",
-    "@capacitor/android": "^5.4.1",
+    "@capacitor/android": "5.4.1",
     "@capacitor/app": "5.0.6",
     "@capacitor/browser": "^5.1.0",
     "@capacitor/camera": "^5.0.7",

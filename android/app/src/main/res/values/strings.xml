@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Chic Guide Thailand</string>
+    <string name="title_activity_main">Chic Guide Thailand</string>
+    <string name="package_name">com.chicguide.thailand</string>
+    <string name="custom_url_scheme">com.chicguide.thailand</string>
+    <string name="facebook_app_id">264172519827432</string>
+    <string name="facebook_client_token">75bd0344f4cc2e2d33e6a22f651abe3a</string>
+    <string name="fb_login_protocol_scheme">fb264172519827432</string>
+    <string name="server_client_id">427617387136-dp3kohgeo74hsrvjkjc7v9207c8k41jh.apps.googleusercontent.com</string>
+</resources>
