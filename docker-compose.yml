@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    # Build the image using the Dockerfile in the current directory
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Expose port 80 for the web application
+    ports:
+      - "3001:80"
